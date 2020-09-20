@@ -1,0 +1,48 @@
+﻿@using System.Collections.Generic;
+@model IEnumerable<Nop.Plugin.Misc.Projects.Domain.Project>
+@{ 
+    Layout = "~/Views/Shared/_Root.cshtml";
+
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+</style>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">list of projects</h2>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <table style="width:100%">
+        <caption>list of Published projects</caption>
+        <tr>
+            <th>Name</th>
+            <th>ShortDescription</th>
+            <th>Details</th>
+        </tr> 
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.ShortDescription</td>
+                   
+                    <td>
+                        <a  asp-action="ProjectsDetails" asp-controller="Project" asp-route-ID=@item.Id>
+                            Details
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>

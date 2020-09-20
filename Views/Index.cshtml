@@ -1,0 +1,44 @@
+﻿@using System.Collections.Generic;
+@model IEnumerable<Nop.Plugin.Misc.Projects.Domain.Project>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    ViewData["Title"] = "index";
+}
+<form>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">list of projects</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <table class="table table-striped">
+        <tr>
+        <thead class="thead-dark">
+        <th>Name</th>
+        <th>ShortDescription </th>
+        <th>FullDescription</th>
+        <th>Published</th>
+        </thead>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.ShortDescription</td>
+                <td>@item.FullDescription</td>
+                <td>@item.Published</td>
+                <td>
+                    <button asp-action="EditProject" asp-controller="Project" asp-route-ID=@item.Id>
+                        Edit
+                    </button>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+
+</form>

@@ -1,0 +1,48 @@
+﻿@model Nop.Plugin.Misc.Projects.Domain.Project
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    <div>
+
+        <div class="col-lg-12">
+            <h2 class="page-header">Edit</h2>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                projects
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                    <label>ShortDescription </label>
+                    <input type="text" class="form-control" asp-for="ShortDescription">
+                    <label>FullDescription </label>
+                    <input type="text" class="form-control" asp-for="FullDescription">
+                    <label>Published </label>
+                    <input type="checkbox" asp-for="Published">
+                </div>
+                <div class="row" style="margin:10px 2px">
+                    <button type="submit"  class="btn-sm btn-success" asp-action="EditProjectByid" asp-controller="Project" asp-route-ID=@Model.Id>Edit</button>
+                </div>
+                <div class="row" style="margin:10px 2px">
+                    <button class="btn-sm btn-danger" asp-action="Delete" asp-controller="Project" asp-route-ID=@Model.Id>
+                        Delete
+
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
